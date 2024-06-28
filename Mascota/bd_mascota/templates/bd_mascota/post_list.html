@@ -1,0 +1,139 @@
+{% extends "core/base.html" %}<!-- las siguientes 3 lineaas permiten heredar el contenido de la pagina base-->
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>blog</title>
+
+</head>
+
+<body>
+  {% block body %} 
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="blogs">
+          <h2>Bienvenidos a nuestro blog</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit aliquid vel quia ut consequatur nisi perferendis eligendi, magni nesciunt eum placeat adipisci dicta temporibus, cum rem repellendus molestiae nihil odio?</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="page-header">
+          <div class="blog">
+
+            {% for p in object_list %}
+            {% for c in p.categorias.all %}
+
+            <h5>{{p.fecha|date:"SHORT_DATE_FORMAT"}}</h5>
+            <h5>Categoria: {{c.nom}}</h5>
+            <img class="img-fluid" src="{{p.imagen.url}}" alt="" width="50%" height="50%"><br>
+            <div class="popular-tags">
+              <h5>{{p.titulo}} <br></h5>
+            </div>
+            {{p.contenido|linebreaks}}<!--|lineabreaks respeta los saltos de linea del contenido-->
+            <hr>
+
+          {% endfor%}
+          {% endfor%}
+          </div>
+        </div>
+
+
+
+        <div class="container">
+          <div class="row">
+            <!--MENU DE AGINAS-->
+        {% if is_paginated %}
+            <nav arial-label="Page navigation">
+              <ul class="pagination justify-conten-center">
+
+                {% if page_obj.has_previous %}
+
+                <li class="page-item">
+                  <a class="page-link" href="?page={{page_obj.previous_page_number}}">&laquo;</a>
+                </li>
+
+                {% else %}
+
+                <li class="page-item diseabled">
+                  <a class="page-link" href="#" tabindex="-1">&laquo;</a>
+                </li>
+
+                {% endif %}
+
+                {% for i in paginator.page_range %}
+
+                <li class="page-item {% if page_obj.number == i %} active{% endif %}">
+                  <a class="page-link" href="?page={{i}}">{{i}}</a>
+                </li>
+
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+
+                <li class="page-item">
+                  <a class="page-link" href="?page={{page_obj.next_page_number}}">&raquo;</a>
+                </li>
+
+                {% else %}
+
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">&raquo;</a>
+                </li>
+
+                {% endif %}
+              </ul>
+            </nav>
+            {%endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <br></br>
+        <br>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <strong>Ultimas Publicaciones</strong>
+          </div>
+          <div class="panel-body">
+            <div class="media">
+              <div class="media-body">
+              {% for p in object_list %}
+                <br>
+                <a class="media-left" href="#">
+                  <img class="img-fluid" src="{{p.id_persona.foto.url}}" alt=""><!--se hace un join de 2 tablas  -->
+                </a>
+                <div class="media-body">
+                  <h4 class="media-heading">{{p.id_persona.nom}} {{p.id_persona.ape}}</h4>
+                  <p>{{p.titulo}} <br> </p>
+                  <div class="ficon" style="text-align: right;">
+                    <h5>{{p.fecha}}</h5>
+                  </div>
+                </div>
+                </div>
+              {% endfor %}
+              <div class="ficon">
+                <a type="button"class="btn btn-primary btn-lg" href="/Crear/"><strong>Crear Post</strong></a>
+              </div>
+              </div>
+            </div>
+            
+        </div>
+      </div>
+    </div>
+  </div>
+
+{%endblock%}
+</body>
+</html>
+{%endblock%}

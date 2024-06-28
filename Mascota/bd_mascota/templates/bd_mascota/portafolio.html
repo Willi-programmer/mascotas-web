@@ -1,0 +1,48 @@
+{% extends "core/base.html" %}<!-- las siguientes 3 lineaas permiten heredar el contenido de la pagina base-->
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portafolio</title>
+</head>
+
+<body>
+  {% block body %} 
+  <div class="portfolio">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="portfolios">
+              <div class="text-center">
+                <h2>Productos ofrecuidos</h2>
+                <p>Los servicios que presta Animalito´s se basa en el cuidado,aseo y belleza de tus mascotas, ademas ofrecemos productos alimenticios para una buena nutricion de tu mascota y juguetes para una sana recreacion.<br>
+                </p>
+              </div>
+              <hr>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% for p in productos %}
+        <br>
+      <div class="container col-md-6" style="text-align: center; display:flex; justify-content:center">
+        <a href="{{p.foto_pro.url}}" class="flipLightBox">
+          <img class="img-fluid" src="{{p.foto_pro.url}}" alt=""width="50%" height="80%"><br>
+        </a>
+        producto: {{p.nom_pro}} <br>
+        Precio: {{p.precio_pro}} <br>
+        Descripcion: {{p.desc_pro}} <br>
+        stock : {{p.stock}}
+      </div>
+    {% endfor %}
+  </div>
+  
+  {%endblock%}
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,155 @@
+{% extends "core/base.html" %}<!-- las siguientes 3 lineaas permiten heredar el contenido de la pagina base-->
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>copia</title>
+
+</head>
+
+<body>
+{% block body %}
+
+  <div class="container">
+    <div class="row">
+      <div class="slider">
+        <div class="img-responsive">
+
+          <ul class="bxslider" style="background-size: cover;">
+            <li><img src="{% static 'img/carrusel1.jpg' %}?v=3" alt="" width="100%" height="100%"  style="background-size: cover;"/></li>
+            <li><img src="{% static 'img/carrusel2.jpg' %}?v=3" alt="" width="100%" height="100%" style="background-size: cover;" /></li>
+            <li><img src="{% static 'img/carrusel3.jpg' %}?v=3" alt="" width="100%" height="100%" style="background-size: cover;" /></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="text-center">
+          <h2>Importacia de una mascota</h2>
+          <p>Todo lo que tu mascota necesita en nuestra pagina<br>Las mascotas pueden disminuir el estrés y la sensación de soledad, mejorar la salud del corazón e, incluso, ayudar a los niños con sus habilidades emocionales y sociales. <br>  "El amor por todas las criaturas vivientes es el más noble atributo del ser humano"</p>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="box">
+        <div class="col-md-4">
+          <div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.4s">
+            <h4>Belleza</h4>
+            <div class="icon">
+              <i class='bx bxs-dog bx-lg'></i>
+            </div>
+            <p>La peluqueria canina tiene como finalidad la preservacion de la salud de tu mascota especializandonos en la igiene y la estetica</p>
+            <div class="ficon">
+              <a href="/services/" class="btn btn-default" role="button">Leer mas</a>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col-md-4">
+          <div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.6s">
+            <h4>Productos</h4>
+            <div class="icon">
+              <i class='bx bx-store bx-lg'></i>
+            </div>
+            <p>los productos para tu mascota van desde alimentos, accesorios y linea de acceso</p>
+            <div class="ficon">
+              <a href="/portafolio/" class="btn btn-default" role="button">leer maas</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="text-center">
+          <h2>Galeria</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Cras suscipit arcu<br> vestibulum volutpat libero sollicitudin vitae Curabitur ac aliquam <br>
+          </p>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="grid">
+      <figure class="effect-zoe">
+        <img src="{% static 'img/galeria1.jpg' %}?v=2" alt="img25" />
+        <figcaption>
+          <h2>PECES <span>ORNAMENTALES</span></h2>
+          <p class="icon-links">
+            <a href="#"><span class="icon-heart"></span></a>
+            <a href="#"><span class="icon-eye"></span></a>
+            <a href="#"><span class="icon-paper-clip"></span></a>
+          </p>
+          <p class="description">Ofrecemos peces ornamentales pequeños. <br>Peceras y la decoracion</p>
+        </figcaption>
+      </figure>
+      <figure class="effect-zoe">
+        <img src="{% static 'img/galeria2.jpg' %}?v=2" alt="img26" />
+        <figcaption>
+          <h2>PELUQUERIA <span>CANINA</span></h2>
+          <p class="icon-links">
+            <a href="#"><span class="icon-heart"></span></a>
+            <a href="#"><span class="icon-eye"></span></a>
+            <a href="#"><span class="icon-paper-clip"></span></a>
+          </p>
+          <p class="description">Ofrce el servicio de Baño, peluqueria, arreglo de uñas y desparacitante</p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="grid">
+      <figure class="effect-zoe">
+        <img src="{% static 'img/galeria3.jpeg' %}?v=2" alt="img27" />
+        <figcaption>
+          <h2>JUGUETES <span>CANINOS</span></h2>
+          <p class="icon-links">
+            <a href="#"><span class="icon-heart"></span></a>
+            <a href="#"><span class="icon-eye"></span></a>
+            <a href="#"><span class="icon-paper-clip"></span></a>
+          </p>
+          <p class="description">Juguetes diseñados expecialmente para el agarre y fuerza paara los caninos y felinos, ofrcemos casitas, camas y pelotas.</p>
+        </figcaption>
+      </figure>
+      <figure class="effect-zoe">
+        <img src="{% static 'img/galeria4.jpeg' %}?v=3" width="1200px" height="335px"  alt="img30" />
+        <figcaption>
+          <h2>ALIMENTO <span>CUIDOS</span></h2>
+          <p class="icon-links">
+            <a href="#"><span class="icon-heart"></span></a>
+            <a href="#"><span class="icon-eye"></span></a>
+            <a href="#"><span class="icon-paper-clip"></span></a>
+          </p>
+          <p class="description">Ofrecemos alimentos de todo tipo, croquetas, enlatados y huesos de carnaza, vitaminas y complementos alimenticios.</p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+
+  
+{% endblock %}
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "core/base.html" %}<!-- las siguientes 3 lineaas permiten heredar el contenido de la pagina base-->
+{%load static %}
+{%load crispy_forms_tags%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block body %}
+    {% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="blogs">
+                    <div class="text-center">
+                        <h2>Crear un nuevo blog</h2>
+                        <p>En este espacio puedes crear un nuevo poster con tus valiosos aportes de mascotas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6 col-md-offset-3">
+        <form action="/Crear/" class="custom-form contact-form row" method="post">
+            
+            {% csrf_token %}
+
+            {{form|crispy}}
+            
+            <div class="col-lg-5 col-12 ms-auto">
+                <button type="submit" id="btnEnviar" class="button">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="blogs">
+                    <div class="text-center">
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {%endblock%}
+</body>
+</html>
+{%endblock%}
